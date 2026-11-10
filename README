@@ -1,0 +1,100 @@
+Laboratoriya İşləri: Funksiyalar (Functions)
+
+Bu layihə Fundamentals of Programming 1 fənni çərçivəsində keçirilən Laboratoriya işi № 8 üçün hazırlanmışdır. Layihə Python-da funksiyaların təyini, parametrlər, arqument növü, modullar, list və dictionary strukturunun funksiyalara ötürülməsi və *args / kwargs istifadəsini əhatə edir.
+
+📁 Qovluq və Fayl Strukturu
+
+Faylların təşkilati quruluşu aşağıdakı kimidir:
+
+lab8_Soyad_Ad/
+│
+├── utils.py            # Yenidən istifadə oluna bilən funksiyalar modulu
+├── lab8_main.py        # Əsas tapşırıqların icra faylı və import nümayişi
+├── task8_fixed.py      # Düzəldilmiş xətalı kod (Tapşırıq 8)
+├── bonus_journal.py    # Bonus: Mini layihə "Tələbə jurnalı v2"
+├── report.md (və ya .docx) # Hissə A proqnozları, cavablar və xəta cədvəli
+└── README.md           # Layihə haqqında ümumi məlumat faylı
+
+
+📑 Fayllar və Onların Məzmunu
+
+1. utils.py
+
+Laboratoriya tapşırıqlarında (Tapşırıq 2, 3, 5, 6) tələb olunan köməkçi funksiyaları saxlayır:
+
+add_vat(price, vat_percent=18) – Qiymətə ƏDV əlavə edərək yeni dəyəri qaytarır.
+
+build_username(first, last, year="") – İstifadəçi adı (first.last[year]) formatında sətir qaytarır.
+
+add_bonus(scores, bonus) – Orijinal siyahıdakı balları yerində dəyişərək bonus əlavə edir (max 100).
+
+with_bonus(scores, bonus) – Orijinal siyahıya toxunmadan bonus əlavə edilmiş yeni siyahı qaytarır.
+
+average(*numbers) – İxtiyari sayda ədədin orta qiymətini hesablayır.
+
+make_course(code, **details) – Kurs kodu və əlavə məlumatlardan ibarət dictionary qaytarır.
+
+2. lab8_main.py
+
+Əsas kod icra faylıdır. Burada aşağıdakı tapşırıqlar yer alır:
+
+Tapşırıq 1: print_student_card(name, group, year) funksiyası (mövqeli və açar sözlü çağırışlar).
+
+Tapşırıq 4: make_student() funksiyası və while dövrü ilə tələbə siyahısının formalaşdırılması.
+
+Tapşırıq 5 & 6: Siyahıların ötürülməsi və *args, **kwargs sınaqları.
+
+Tapşırıq 7: utils.py modulunun 4 müxtəlif üsulla import edilməsi (import utils, from utils import ..., as istifadəsi).
+
+3. task8_fixed.py
+
+Sintaksis və məntiq xətaları olan kodun düzəldilmiş versiyası.
+
+Təyin olunmuş funksiyalardakı syntax error, positional argument after default argument, return istifadəsi və parametr ardıcıllığı düzəldilmişdir.
+
+4. bonus_journal.py
+
+Mini Layihə «Tələbə jurnalı v2»:
+
+Menyu sistemi (1. Add student, 2. Report, 3. Quit).
+
+add_student(), average_score(), top_student(), print_report() funksiyaları vasitəsilə tələbələrin idarə edilməsi.
+
+🛠 İstifadələr və İcra Qaydaları
+
+Proqramı və ya tapşırıqları icra etmək üçün terminal və ya Python IDE-də aşağıdakı əmrlərdən istifadə edə bilərsiniz:
+
+Əsas faylı işlətmək:
+
+python lab8_main.py
+
+
+Düzəldilmiş xətalar faylını işlətmək:
+
+python task8_fixed.py
+
+
+Bonus layihəni işlətmək:
+
+python bonus_journal.py
+
+
+🎨 Kod Üslubu Tələbləri (PEP 8 Adherence)
+
+Adlandırma: Funksiya adları kiçik hərflərlə və alt xətlə (snake_case) yazılıb.
+
+Docstring: Hər bir funksiya daxilində qısa və aydın docstring (""" ... """) daxil edilib.
+
+Boş Sətirlər: Top-level funksiyalar arasında 2 boş sətir qoyulub.
+
+Default Parametrlər: Default qiyməti olan parametrlərdə mənimsətmə operatorunun (=) ətrafında boşluq saxlanılmayıb (vat_percent=18).
+
+📝 Müdafiə Sualları üçün Qeydlər
+
+return və print fərqi: return funksiyadan bir qiymət qaytarır və onu başqa əməliyyatda (məsələn, riyazi hesablamada) istifadə etməyə imkan verir. print isə yalnız ekrana məlumat çıxarır və qaytarılan dəyər None olur.
+
+Parametr vs Arqument: Parametr funksiya təyin ediləndə mötərizə daxilində yazılan dəyişəndir (məs: name). Arqument isə funksiya çağırılarkən ona göndərilən faktiki dəyərdir (məs: "Aysel").
+
+Listlərin kopyalanması (scores[:]): Funksiyaya list scores kimi ötürüldükdə referansla ötürülür və funksiya daxilində dəyişiklik orijinal listə təsir edir. scores[:] shallow copy yaradaraq orijinal listi qoruyur.
+
+*args parametri: Funksiya daxilində elementləri tuple (kortej) şəklində toplayır.
